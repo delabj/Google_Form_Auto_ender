@@ -1,0 +1,48 @@
+<!-- Use this CSS stylesheet to ensure that add-ons styling
+     matches the default Google Docs styles -->
+<link href="https://ssl.gstatic.com/docs/script/css/add-ons.css"
+     rel="stylesheet">
+
+<!-- The sidebar will have a input box and the search button -->
+<div class="sidebar">
+
+    <!-- The search box for Google Maps -->
+    <div class="block form-group">
+       End Date: <input type="date" id="dateClose" placeholder="Enter an date to close the form" />
+        <br>
+         <!-- End Time: <input type = "Time" id= "timeClose" placeholder= "Select a time to close the form" /> -->
+        <br>
+        <br> 
+        <button class="blue" id="setDateTime">Set End Date</button>
+    </div>
+
+    <!-- The container for the Google Maps static image -->
+    <div id='maps'></div>
+
+</div>
+
+<!-- Load the jQuery library from the Google CDN -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+
+<script>
+ // Attach click handlers after the Sidebar has loaded in Google Docs
+ $(function() {
+
+
+
+   // If the user presses the Enter key in the search box, perform a search
+   $('#dateClose').keyup(function(e) {
+      if (e.keyCode === 13) {
+         $('#setDateTime').click();
+      }
+   });
+
+   // When a user clicks the thumbnail image in the sidebar, call
+   // insertGoogleMap to insert the maps image in the current document
+   $('#setDateTime').click(function() {
+     google.script.run.setEndDate($('#dateClose').val());
+   });
+
+ });
+</script>
