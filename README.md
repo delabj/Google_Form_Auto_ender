@@ -1,2 +1,4 @@
 # Google_Form_Auto_ender
-code for a google forms plugin that enables a user to set an end date for their form to automatically close
+
+
+Was working on writing a script to auto close a large form at my job and decided it would make for a nice plug in. This creates an installable Google Forms plug-in for easy set up of auto closing a form. 
